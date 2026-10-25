@@ -62,7 +62,100 @@
   animation: lineGrow 0.8s ease-out forwards;
 }
 
+/* Refined motion system: restrained reveals, responsive hover feedback and a calm hero illustration. */
+@keyframes revealUp {
+  from { opacity: 0; transform: translate3d(0, 26px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes revealLeft {
+  from { opacity: 0; transform: translate3d(-24px, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes softPulse {
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+
+html.motion-ready [data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+html.motion-ready [data-reveal="up"].is-visible {
+  animation: revealUp .72s cubic-bezier(.2,.7,.2,1) both;
+}
+html.motion-ready [data-reveal="left"].is-visible {
+  animation: revealLeft .8s cubic-bezier(.2,.7,.2,1) both;
+}
+html.motion-ready [data-reveal-delay="1"].is-visible {
+  animation-delay: 100ms;
+}
+
+/* Gentle movement on the hero artwork; no distracting continuous motion elsewhere. */
+#hero svg {
+  animation: gentleFloat 7s ease-in-out infinite;
+  transform-origin: center;
+}
+#hero svg circle[stroke-dasharray] {
+  animation: softPulse 5s ease-in-out infinite;
+}
+#hero svg circle[stroke-dasharray]:nth-of-type(2) {
+  animation-delay: 700ms;
+}
+
+/* Clear, tactile feedback for clickable elements and content cards. */
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+main a, footer a, button {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 220ms;
+  transition-timing-function: ease-out;
+}
+main a:hover, button:hover {
+  transform: translateY(-2px);
+}
+main a:active, button:active {
+  transform: translateY(0) scale(.985);
+}
+main section article, main section [class*="rounded-2xl"], main section [class*="rounded-3xl"] {
+  transition: box-shadow 260ms ease, border-color 260ms ease, transform 260ms ease;
+}
+main section article:hover, main section [class*="rounded-2xl"]:hover, main section [class*="rounded-3xl"]:hover {
+  border-color: rgba(0, 183, 165, .34);
+}
+header nav a {
+  position: relative;
+}
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -5px;
+  height: 1px;
+  background: #00B7A5;
+  transition: right 220ms ease;
+}
+header nav a:hover::after {
+  right: 0;
+}
+footer a:hover {
+  transform: translateX(2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html.motion-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  #hero svg, #hero svg circle[stroke-dasharray] {
+    animation: none !important;
+  }
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
