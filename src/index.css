@@ -743,3 +743,49 @@ html.motion-ready [data-reveal="left"].is-visible {
     to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
   }
 }
+
+
+/* Final easing polish: softer starts, gentle deceleration, and less simultaneous motion. */
+@keyframes silkRevealUp {
+  0% { opacity: 0; transform: translate3d(0, 16px, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes silkRevealLeft {
+  0% { opacity: 0; transform: translate3d(-14px, 0, 0); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes silkCardLeft {
+  0% { opacity: 0; transform: translate3d(-18px, 8px, 0) scale(.992); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes silkCardRight {
+  0% { opacity: 0; transform: translate3d(18px, 8px, 0) scale(.992); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+html.motion-ready [data-reveal="up"].is-visible {
+  animation: silkRevealUp .82s cubic-bezier(.16, 1, .3, 1) both !important;
+}
+html.motion-ready [data-reveal="left"].is-visible {
+  animation: silkRevealLeft .82s cubic-bezier(.16, 1, .3, 1) both !important;
+}
+[data-card-motion="left"].card-motion-visible {
+  animation: silkCardLeft .86s cubic-bezier(.16, 1, .3, 1) both !important;
+}
+[data-card-motion="right"].card-motion-visible {
+  animation: silkCardRight .86s cubic-bezier(.16, 1, .3, 1) both !important;
+}
+html.motion-ready [data-reveal],
+[data-card-motion] {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@media (max-width: 640px) {
+  html.motion-ready [data-reveal="up"].is-visible,
+  html.motion-ready [data-reveal="left"].is-visible {
+    animation-duration: .7s !important;
+  }
+  [data-card-motion="left"].card-motion-visible,
+  [data-card-motion="right"].card-motion-visible {
+    animation-duration: .72s !important;
+  }
+}
