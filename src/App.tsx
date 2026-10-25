@@ -61,9 +61,11 @@ const AppContent: React.FC = () => {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        // Replay the reveal every time the element leaves and re-enters the viewport.
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+        } else {
+          entry.target.classList.remove('is-visible');
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
@@ -81,10 +83,12 @@ const AppContent: React.FC = () => {
 
     const cardObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        const card = entry.target as HTMLElement;
+        // Remove the animation class on exit so CSS restarts the animation on re-entry.
         if (entry.isIntersecting) {
-          const card = entry.target as HTMLElement;
           card.classList.add('card-motion-visible');
-          cardObserver.unobserve(card);
+        } else {
+          card.classList.remove('card-motion-visible');
         }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
