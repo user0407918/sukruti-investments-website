@@ -163,3 +163,305 @@ footer a:hover {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Expanded motion layer — expressive but still suitable for a financial-services brand. */
+@keyframes heroTextIn {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); filter: blur(4px); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+}
+@keyframes accentSweep {
+  0% { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+  20% { opacity: .7; }
+  100% { transform: translateX(230%) skewX(-18deg); opacity: 0; }
+}
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbitSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes dotBreathe {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0,183,165,.18); }
+  50% { transform: scale(1.18); box-shadow: 0 0 0 7px rgba(0,183,165,0); }
+}
+@keyframes lineDraw {
+  from { stroke-dashoffset: 180; opacity: .25; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+@keyframes cardEntrance {
+  from { opacity: 0; transform: translateY(18px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes menuDrop {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes softGlow {
+  0%, 100% { box-shadow: 0 8px 26px rgba(16,61,59,.08); }
+  50% { box-shadow: 0 12px 34px rgba(0,183,165,.16); }
+}
+@keyframes shimmerText {
+  0% { background-position: 180% center; }
+  100% { background-position: -180% center; }
+}
+
+/* Hero: stagger the eyebrow, headline, copy, actions and registration line. */
+#hero .grid > div:first-child > div:first-child {
+  animation: heroTextIn .65s .08s both cubic-bezier(.2,.7,.2,1);
+}
+#hero h1 {
+  animation: heroTextIn .82s .16s both cubic-bezier(.2,.7,.2,1);
+}
+#hero h1 span {
+  background-image: linear-gradient(100deg, #00B7A5 0%, #087F7C 38%, #00B7A5 68%, #a8d8c8 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerText 8s linear infinite;
+}
+#hero p {
+  animation: heroTextIn .72s .3s both cubic-bezier(.2,.7,.2,1);
+}
+#hero .grid > div:first-child > div:nth-of-type(3) {
+  animation: heroTextIn .72s .42s both cubic-bezier(.2,.7,.2,1);
+}
+#hero .grid > div:first-child > div:last-child {
+  animation: heroTextIn .72s .56s both cubic-bezier(.2,.7,.2,1);
+}
+#hero .grid > div:last-child > div {
+  animation: cardEntrance .9s .22s both cubic-bezier(.2,.7,.2,1), softGlow 7s 1.2s ease-in-out infinite;
+}
+#hero .grid > div:last-child > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(16,61,59,.13);
+}
+#hero .grid > div:last-child > div > div:first-child {
+  animation: heroTextIn .6s .55s both;
+}
+#hero svg circle[stroke-dasharray] {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+#hero svg circle[stroke-dasharray]:first-of-type {
+  animation: orbitSpin 38s linear infinite, softPulse 5s ease-in-out infinite;
+}
+#hero svg circle[stroke-dasharray]:nth-of-type(2) {
+  animation: orbitSpinReverse 58s linear infinite;
+}
+#hero svg path[stroke] {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: lineDraw 2.4s 1s ease-out forwards;
+}
+#hero svg circle[fill="#00B7A5"]:last-of-type {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dotBreathe 3.2s ease-in-out infinite;
+}
+#hero .grid > div:last-child > div > div:last-child p {
+  transition: letter-spacing .3s ease;
+}
+#hero .grid > div:last-child > div:hover > div:last-child p {
+  letter-spacing: .045em;
+}
+
+/* CTAs get a restrained light sweep on hover, with no layout shift. */
+#hero a, header a[href="#contact"], main section a[class*="rounded-full"] {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+#hero a::before, header a[href="#contact"]::before, main section a[class*="rounded-full"]::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -20% auto -20% -55%;
+  width: 35%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.28), transparent);
+  transform: skewX(-18deg);
+  opacity: 0;
+}
+#hero a:hover::before, header a[href="#contact"]:hover::before, main section a[class*="rounded-full"]:hover::before {
+  animation: accentSweep .8s ease-out;
+}
+#hero a svg, header a[href="#contact"] svg {
+  transition: transform .25s ease;
+}
+#hero a:hover svg, header a[href="#contact"]:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Section titles: a short accent line grows underneath headings. */
+main section h2 {
+  position: relative;
+  text-wrap: pretty;
+}
+main section h2::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 2px;
+  margin-top: 14px;
+  background: linear-gradient(90deg, #00B7A5, rgba(0,183,165,0));
+  transform-origin: left;
+  transition: width .35s ease;
+}
+main section h2:hover::after {
+  width: 92px;
+}
+
+/* Interactive rows, cards, resource tiles and contact panels. */
+main section article:hover,
+main section [class*="group"]:hover {
+  transform: translateY(-3px);
+}
+#services > div > div.divide-y > div {
+  position: relative;
+  transition: background-color .35s ease, padding-left .35s ease, padding-right .35s ease;
+}
+#services > div > div.divide-y > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18%;
+  bottom: 18%;
+  width: 2px;
+  background: #00B7A5;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform .3s ease;
+}
+#services > div > div.divide-y > div:hover::before {
+  transform: scaleY(1);
+}
+#services > div > div.divide-y > div:hover {
+  padding-left: 1.15rem;
+}
+main section [class*="rounded-2xl"] svg,
+main section [class*="rounded-xl"] svg {
+  transition: transform .3s cubic-bezier(.2,.7,.2,1), color .3s ease;
+}
+main section [class*="rounded-2xl"]:hover svg,
+main section [class*="rounded-xl"]:hover svg {
+  transform: scale(1.08) rotate(-3deg);
+}
+main section li svg {
+  transition: transform .22s ease;
+}
+main section li:hover svg {
+  transform: scale(1.16);
+}
+#journey [class*="rounded"], #resources [class*="rounded"] {
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+#journey [class*="rounded"]:hover, #resources [class*="rounded"]:hover {
+  box-shadow: 0 14px 32px rgba(16,61,59,.09);
+}
+#journey [class*="rounded"] > span:first-child,
+#resources [class*="rounded"] > span:first-child {
+  transition: color .25s ease, transform .25s ease;
+}
+#journey [class*="rounded"]:hover > span:first-child,
+#resources [class*="rounded"]:hover > span:first-child {
+  color: #00B7A5;
+  transform: translateY(-2px);
+}
+
+/* Navbar brand, active feel, mobile drawer and footer details. */
+header > div {
+  transition: padding .3s ease;
+}
+header a img {
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), filter .3s ease;
+}
+header a:hover img {
+  transform: rotate(-5deg) scale(1.07);
+  filter: drop-shadow(0 2px 5px rgba(0,183,165,.2));
+}
+header nav a {
+  transition: color .22s ease, letter-spacing .22s ease;
+}
+header nav a:hover {
+  letter-spacing: .015em;
+}
+header [role="dialog"] {
+  animation: menuDrop .28s ease-out both;
+}
+header [role="dialog"] a {
+  transition: padding-left .22s ease, color .22s ease, background-color .22s ease;
+}
+header [role="dialog"] a:hover {
+  padding-left: .5rem;
+}
+footer img {
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+footer img:hover {
+  transform: scale(1.08) rotate(-3deg);
+}
+footer h4 {
+  transition: color .25s ease;
+}
+footer h4:hover {
+  color: #a8d8c8;
+}
+footer .my-8 {
+  transition: border-color .3s ease, background-color .3s ease;
+}
+footer .my-8:hover {
+  border-color: rgba(168,216,200,.38);
+}
+
+/* Inputs and keyboard focus should feel responsive too. */
+input, textarea, select {
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #00B7A5 !important;
+  box-shadow: 0 0 0 3px rgba(0,183,165,.13);
+}
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #00B7A5;
+  outline-offset: 4px;
+}
+
+/* Keep continuous motion limited on smaller screens and honour accessibility settings. */
+@media (max-width: 640px) {
+  #hero svg circle[stroke-dasharray]:first-of-type {
+    animation-duration: 52s, 7s;
+  }
+  #hero .grid > div:last-child > div {
+    animation: cardEntrance .8s .18s both;
+  }
+  #services > div > div.divide-y > div:hover {
+    padding-left: .5rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #hero h1 span,
+  #hero .grid > div:first-child > div,
+  #hero .grid > div:last-child > div,
+  #hero svg circle[stroke-dasharray]:first-of-type,
+  #hero svg circle[stroke-dasharray]:nth-of-type(2),
+  #hero svg path[stroke],
+  #hero svg circle[fill="#00B7A5"]:last-of-type {
+    animation: none !important;
+    filter: none !important;
+    background-position: initial !important;
+  }
+  #hero h1 span {
+    color: #00B7A5 !important;
+    -webkit-text-fill-color: #00B7A5;
+  }
+  main section article:hover,
+  main section [class*="group"]:hover,
+  main section [class*="rounded-2xl"]:hover,
+  main section [class*="rounded-xl"]:hover {
+    transform: none !important;
+  }
+}
