@@ -465,3 +465,73 @@ a:focus-visible, button:focus-visible {
     transform: none !important;
   }
 }
+
+
+/* Card entrance motion: alternate left/right as cards enter view. */
+@keyframes cardSlideFromLeft {
+  0% { opacity: 0; transform: translate3d(-44px, 10px, 0) scale(.985); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes cardSlideFromRight {
+  0% { opacity: 0; transform: translate3d(44px, 10px, 0) scale(.985); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes cardLiftIn {
+  0% { opacity: 0; transform: translate3d(0, 26px, 0) scale(.98); }
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Apply only to common card-like blocks, with alternating directions per row. */
+main section article,
+main section [class*="rounded-2xl"],
+main section [class*="rounded-3xl"],
+#journey [class*="rounded"],
+#resources [class*="rounded"] {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+main section article:nth-child(odd),
+main section [class*="grid"] > [class*="rounded"]:nth-child(odd),
+#journey [class*="grid"] > [class*="rounded"]:nth-child(odd),
+#resources [class*="grid"] > [class*="rounded"]:nth-child(odd) {
+  animation: cardSlideFromLeft .75s both cubic-bezier(.2,.7,.2,1);
+}
+main section article:nth-child(even),
+main section [class*="grid"] > [class*="rounded"]:nth-child(even),
+#journey [class*="grid"] > [class*="rounded"]:nth-child(even),
+#resources [class*="grid"] > [class*="rounded"]:nth-child(even) {
+  animation: cardSlideFromRight .75s both cubic-bezier(.2,.7,.2,1);
+}
+/* Keep hover interaction feeling separate from entrance motion. */
+main section article:hover,
+main section [class*="rounded-2xl"]:hover,
+main section [class*="rounded-3xl"]:hover {
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+main section article:active,
+main section [class*="rounded-2xl"]:active,
+main section [class*="rounded-3xl"]:active {
+  transform: scale(.99);
+}
+
+/* Phone users get a softer, shorter travel distance. */
+@media (max-width: 640px) {
+  @keyframes cardSlideFromLeft {
+    0% { opacity: 0; transform: translate3d(-22px, 8px, 0) scale(.99); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  }
+  @keyframes cardSlideFromRight {
+    0% { opacity: 0; transform: translate3d(22px, 8px, 0) scale(.99); }
+    100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  main section article,
+  main section [class*="rounded-2xl"],
+  main section [class*="rounded-3xl"],
+  #journey [class*="rounded"],
+  #resources [class*="rounded"] {
+    animation: none !important;
+    transform: none !important;
+  }
+}
