@@ -1,0 +1,808 @@
+
+ LOVABLE MASTER PROMPT — SUKRITI INVESTMENTS LOGO REVEAL INTRO
+Implement a premium animated logo reveal at the beginning of the existing Sukriti Investments website.
+1. First inspect the existing project
+Before making changes:
+•	Inspect the current homepage, framework, routing, logo assets and global styles.
+•	Locate the actual Sukriti Investments logo supplied by the user.
+•	Reuse the existing logo asset. Do not recreate, redraw, distort or replace its S mark with a generic letter.
+•	Preserve the existing homepage, footer, all 10 compliance pages, navigation and approved styling.
+This is an enhancement to the existing website, not a redesign.
+2. Brand identity
+Maintain Sukriti Investments' existing colour palette:
+•	Deep green: #123e35
+•	Supporting green: #205c4d
+•	Teal: #a8d8c8
+•	Cream: #f6f5ef
+•	Off-white: #fffefa
+Do not use the navy-and-gold palette from any reference website.
+3. Logo animation concept
+Create a full-screen opening intro with these sequential animations:
+1.	Background appears: The existing deep-green brand background fades in smoothly.
+2.	Logo reveal: Display the actual supplied Sukriti logo in the centre. Animate it with a gentle fade-in and scale-up.
+3.	S-inspired light effect: Add a restrained teal light sweep across the logo to emphasise the existing S mark. The logo image itself must remain unchanged and undistorted.
+4.	Brand name reveal: Fade and slide in “Sukriti Investments” beneath the logo using elegant typography.
+5.	Tagline: Show “Invest with understanding” beneath the brand name.
+6.	Progress accent: A thin teal line grows horizontally beneath the text.
+7.	Homepage transition: Fade the intro away smoothly to reveal the existing homepage.
+The animation should feel elegant, trustworthy and premium for a financial-services brand. Avoid excessive particles, spinning effects, flashy neon, large bouncing motion or generic loading spinners.
+4. Timing and behaviour
+•	Target a total intro duration of approximately 2–2.2 seconds.
+•	Do not show a Skip Intro button or any other skip control.
+•	Automatically transition to the homepage.
+•	Do not block access to the homepage if the logo asset fails to load or JavaScript encounters an error.
+•	Respect prefers-reduced-motion; bypass or minimise animation for users who request reduced motion.
+•	Keep the animation lightweight and smooth on mobile devices.
+•	Prevent horizontal overflow and unwanted scrolling while the intro is visible.
+•	The intro must not remain stuck on screen.
+•	Do not show the intro when navigating between internal pages.
+•	Choose and implement a sensible first-visit/session behaviour so the intro does not become repetitive or annoying. Keep it limited to the homepage entry and avoid showing it on every internal route.
+•	Ensure the page remains accessible and the intro does not interfere with keyboard navigation or assistive technology.
+5. Actual logo asset
+Use the uploaded Sukriti logo featuring the turquoise S/i mark and black dot.
+•	Find and use the real project asset.
+•	Preserve its original proportions, colours and appearance.
+•	If the image has a white background, display it in a subtle white rounded container consistent with the existing brand styling.
+•	If a transparent version is available, prefer it when visually appropriate.
+•	Do not invent a new logo or substitute a generic SVG letter.
+•	Do not assume a file path exists without verifying it.
+6. Technical implementation
+•	Use the existing project's framework and routing system.
+•	Create a reusable intro component, such as SukritiIntro, where appropriate.
+•	Use CSS keyframes or the project's existing animation library if already installed.
+•	Avoid installing unnecessary dependencies.
+•	Mount the intro only on the homepage entry flow.
+•	Clean up timers, event listeners and animation state appropriately.
+•	Avoid conflicting global CSS or duplicate style definitions.
+•	Keep the existing header, homepage hero and approved footer intact.
+•	Ensure the homepage remains usable after the intro completes.
+•	Ensure the intro does not appear on the 10 compliance routes.
+7. QA checklist
+After implementation, verify and report:
+•	The actual Sukriti logo loads correctly.
+•	The S mark is not redrawn or distorted.
+•	No Skip Intro button is present.
+•	The intro completes automatically within approximately 2–2.2 seconds.
+•	The homepage appears correctly after the intro.
+•	Internal page navigation does not replay the intro unnecessarily.
+•	The intro does not appear on compliance pages.
+•	Reduced-motion settings are respected.
+•	Mobile and desktop layouts work without overflow.
+•	No console errors or missing assets.
+•	The existing homepage, footer and all 10 compliance routes remain intact.
+•	The intro cannot get stuck and does not prevent access to the site.
+Report every check as PASS, FAIL, WARNING or NEEDS DECISION. Do not claim a check passed unless it has actually been performed.
+8. Do not change
+•	Do not redesign the homepage.
+•	Do not change the existing Sukriti colour palette.
+•	Do not modify the approved footer headings: “Our Practice”, “Investor Desk”, and “Disclosures & Policies”.
+•	Do not remove or alter the 10 compliance pages.
+•	Do not add a Skip Intro button.
+•	Do not replace the real logo with a placeholder.
+•	Do not claim deployment success unless a real deployment has been performed and confirmed.
+Implement the intro, test it, and provide a concise summary of the files changed, the animation behaviour and the QA results. Do not deploy without explicit authorisation.
+LOVABLE MASTER PROMPT — SUKRITI INVESTMENTS WEBSITE
+1. PROJECT OBJECTIVE
+Build a premium, distinctive, responsive website for Sukriti Investments, the mutual fund distribution practice of Avinash Bhandari, based in Jodhpur, Rajasthan.
+The website must feel like a thoughtfully art-directed financial brand, not a generic AI-generated finance template.
+Use the approved HTML/CSS design direction as the source of truth for the homepage. Reproduce its visual identity, layout, typography, color palette, interactions, content hierarchy, and responsive behavior faithfully.
+Prioritize visual precision, trust, readability, performance, accessibility, and financial-services compliance.
+2. BRAND IDENTITY
+Brand: Sukriti Investments
+Distributor: Avinash Bhandari
+Registration: AMFI Registered Mutual Fund Distributor and SIF Distributor
+ARN: ARN-31739
+Location: Jodhpur, Rajasthan, India
+Use the supplied Sukriti Investments logo as the primary brand asset. Do not recreate, distort, recolor, crop, or replace the original logo.
+Brand color palette:
+•	Deep forest green: #103D3B
+•	Teal: #00B7A5
+•	Teal-dark: #087F7C
+•	Warm off-white: #F7F8F4
+•	White: #FFFFFF
+•	Primary text: #172321
+•	Secondary text: #707B75
+•	Light border: #DFE6DF
+Typography:
+•	Use an elegant editorial serif for large headings.
+•	Use a clean, modern sans-serif for navigation, body text, metadata, and buttons.
+•	Use large typography, carefully controlled line lengths, generous whitespace, and restrained uppercase labels.
+•	Use Georgia or a visually similar serif and Avenir Next, Inter, or a similar clean sans-serif where available.
+Do not introduce unrelated accent colors, excessive gradients, glassmorphism, glowing effects, or excessive rounded cards.
+3. DESIGN DIRECTION
+The design direction is premium editorial, with subtle interactive storytelling.
+The site should combine:
+•	Editorial typography.
+•	Asymmetric layouts.
+•	Original abstract SVG illustrations.
+•	Strong visual hierarchy.
+•	Dark-green storytelling sections.
+•	Teal accents used with restraint.
+•	Thin borders and deliberate whitespace.
+•	Subtle, meaningful motion.
+Avoid:
+•	Generic three-card layouts.
+•	Standard stock-photo hero templates.
+•	Repetitive icon cards.
+•	Fake financial charts or invented returns.
+•	Decorative dashboards and unnecessary counters.
+•	Excessive animation that reduces readability.
+•	AI-template styling patterns.
+The visual result should feel bespoke, professional, trustworthy, and recognizable as Sukriti Investments.
+4. HOMEPAGE STRUCTURE
+Implement the homepage in this exact order.
+A. Sticky navigation
+Include:
+•	Original Sukriti Investments logo on the left.
+•	Home
+•	About
+•	Our Approach
+•	Services
+•	Investor Resources
+•	Contact
+•	“Let's Connect” CTA on desktop.
+Requirements:
+•	Sticky header with a subtle border and shadow on scroll.
+•	Smooth scrolling to page sections.
+•	Animated navigation underline on hover.
+•	Accessible mobile navigation with a menu toggle.
+•	Close the mobile menu after selecting a section.
+•	Support Escape to close the mobile menu.
+•	Keep the header compact and unobtrusive.
+B. Hero section
+Use a two-column editorial composition on desktop.
+Left side:
+•	Small uppercase label: “A more thoughtful way to invest”
+•	Main headline:
+“Your future.
+Your reasons.
+Your journey.”
+•	Highlight “Your reasons.” in teal with an italic serif treatment.
+•	Supporting text:
+“Meaningful investing begins with understanding what matters to you. At Sukriti Investments, we focus on your goals, your circumstances and the choices that fit your investment profile.”
+•	Primary CTA: “Discover Our Approach”
+•	Secondary CTA: “Our Services”
+•	Small registration metadata: “Avinash Bhandari · AMFI ARN-31739”
+Right side:
+•	Create an original abstract landscape illustration using inline SVG or editable vector artwork.
+•	Include layered curved terrain, circular orbital outlines, a winding path, restrained teal accents, and a small editorial caption.
+•	Caption: “OUR PHILOSOPHY — Purpose before products.”
+•	The artwork must feel bespoke and must not rely on generic stock imagery.
+Use a warm off-white background and generous negative space.
+On mobile, stack the copy and artwork without horizontal overflow.
+C. Credibility strip
+Create a restrained, horizontally divided information strip with these three items:
+1.	Our Distributor — Avinash Bhandari
+2.	Registration — ARN-31739
+3.	Based In — Jodhpur, Rajasthan
+Do not fabricate years of experience, assets under management, investor counts, ratings, or performance statistics.
+D. Philosophy section
+Create an asymmetric two-column editorial layout.
+Left:
+•	Label: “A different starting point”
+•	Heading: “Before the numbers, there is you.”
+•	Supporting paragraph about understanding an investor's priorities before considering investment products.
+•	CTA: “Explore Our Philosophy”
+Right:
+•	Introductory editorial statement:
+“Not every investment starts with a number. Some begin with a dream, a responsibility or the desire to feel more prepared for what comes next.”
+•	Three numbered principles:
+01 — Understand the person, not just the portfolio.
+02 — Make room for informed decisions.
+03 — Keep the conversation going.
+Use fine horizontal dividers, small numbered labels, and elegant typography. No cards.
+E. Signature financial journey
+This is a defining section of the website. Do not turn it into a standard three-card component.
+Use a full-width deep forest-green background with restrained decorative orbital outlines.
+Heading:
+“A journey shaped by your priorities.”
+Supporting copy:
+“No two financial journeys are identical. Our process begins with understanding your situation and continues through informed selection and ongoing support.”
+Create a vertical editorial timeline with three stages:
+01 — START WITH YOUR WHY
+Heading: “Start with your why.”
+Explain that the process begins by understanding investor goals, priorities, investment horizon, and risk profile.
+02 — MAKE AN INFORMED CHOICE
+Heading: “Make an informed choice.”
+Explain that suitable mutual fund and SIF distribution options may be explored based on investor requirements, scheme features, risks, and disclosures.
+03 — KEEP YOUR JOURNEY IN VIEW
+Heading: “Keep your journey in view.”
+Explain periodic reviews and ongoing support as investor circumstances and priorities change.
+Design requirements:
+•	A slim vertical timeline line.
+•	Circular numbered markers.
+•	Teal-highlighted active marker.
+•	Large serif stage headings.
+•	Supporting copy aligned in a separate column on desktop.
+•	Scroll-linked timeline progress that does not imply investment growth or returns.
+•	Smooth, restrained transitions.
+•	Single-column timeline on mobile.
+•	A bottom CTA: “Discover Our Services”.
+Do not use investment-return graphs, target-return promises, or animated financial growth charts.
+F. Services section
+Use a white background with a large editorial heading:
+“Investment services, thoughtfully considered.”
+Display exactly two horizontal service rows, not cards.
+Service 01:
+Title: “Mutual Fund Distribution”
+Description: “Mutual fund scheme distribution from empanelled AMCs, with selections considered in relation to investor suitability and requirements.”
+Service 02:
+Title: “Specialised Investment Funds”
+Description: “SIF distribution under the same ARN in Regular Plans. These products involve relatively higher risk and require careful consideration of scheme disclosures.”
+Each row must include a small index number, large serif title, description, and circular directional link.
+Use thin dividers, restrained hover backgrounds, and subtle interaction.
+IMPORTANT: Do not add an insurance service or insurance card.
+G. Investor resources and process
+Use a two-column editorial section.
+Heading:
+“Responsible investing starts with the basics.”
+Include these four steps:
+01 — KYC and risk profiling.
+02 — Suitability-based scheme selection.
+03 — Commission disclosure.
+04 — Periodic portfolio reviews.
+Explain each step in concise, factual language.
+Use a vertical list with numbered markers and separators, not cards.
+H. Risk disclosures
+Create a readable light-green disclosure panel.
+Include:
+“Mutual Fund investments are subject to market risks. Read all scheme related documents carefully.”
+Include:
+“Investments in Specialised Investment Funds involve relatively higher risk, including potential loss of capital, liquidity risk and market volatility. Read all scheme related documents carefully before investing.”
+Include:
+“Avinash Bhandari is NOT a SEBI-registered Investment Adviser. Any guidance given is incidental to the distribution of mutual fund schemes and no fee is charged for it.”
+Do not weaken, omit, or rewrite these disclosures into misleading claims.
+I. Contact section
+Use a light-green background and a two-column layout.
+Heading:
+“Every good plan begins with a conversation.”
+Supporting copy:
+“Contact Sukriti Investments for information about distribution services, investor onboarding or support.”
+Buttons:
+•	Call Us
+•	Send an Email
+Contact information:
+Distributor: Avinash Bhandari · ARN-31739
+Office:
+Utkarsh Complex, SBI Premises, Near Ashapurna Mall, Shastri Nagar, Jodhpur, Rajasthan – 342003
+Phone:
++91 98285 35035
+Email:
+avinash@sinvest.in
+Use working telephone and email links. Do not invent a contact form submission backend or claim that a form sends data unless it is actually implemented.
+J. Grievance redressal
+Include a distinct but restrained section for investor support.
+Explain that the supplied grievance policy specifies acknowledgement within three working days and resolution within fifteen working days.
+Provide:
+•	Contact Grievance Officer via the supplied email.
+•	SEBI SCORES: https://scores.sebi.gov.in/
+•	SMART ODR: https://smartodr.in/
+Verify the current official grievance information and external destinations before publishing. Do not invent a grievance officer's name or additional contact information.
+K. Footer
+Include:
+•	Sukriti Investments brand name.
+•	Avinash Bhandari's distributor identification and ARN.
+•	Investor information links.
+•	Risk disclosure summary.
+•	Copyright notice with a dynamically updated year.
+Legal-page destinations:
+•	/privacy-policy
+•	/terms-and-conditions
+•	/commission-disclosure
+•	/registration
+Do not silently leave these as broken production links. If their corresponding pages are unavailable, flag them as unresolved and ask for the approved URLs or build the pages only when authorized.
+5. ANIMATION AND INTERACTION REQUIREMENTS
+Implement animations as real interactions, not decorative descriptions.
+1.	Hero entrance:
+o	Staggered fade-up for eyebrow, heading, paragraph, buttons, and metadata.
+o	Subtle entrance of the original SVG artwork.
+2.	Scroll reveal:
+o	Reveal headings, text, timeline entries, service rows, and information sections when they enter the viewport.
+o	Use IntersectionObserver or an equivalent performant implementation.
+o	Trigger once per element unless there is a clear reason otherwise.
+3.	Timeline:
+o	Animate progress as the visitor scrolls through the timeline section.
+o	Highlight the currently active stage.
+o	Ensure progress never represents investment returns.
+4.	Hover states:
+o	Underline navigation links.
+o	Slightly lift interactive buttons.
+o	Add restrained background transitions to service rows.
+o	Animate small arrows subtly.
+5.	Sticky navigation:
+o	Add a light shadow and border after scrolling.
+6.	Back-to-top:
+o	Show after meaningful scrolling.
+o	Scroll to the top smoothly.
+o	Respect reduced-motion preferences.
+7.	Mobile menu:
+o	Support keyboard navigation, visible focus, Escape, and closing after navigation.
+8.	Reduced motion:
+o	Respect prefers-reduced-motion.
+o	Disable or minimize nonessential animations.
+o	Ensure all content remains visible and usable.
+Use CSS transforms and opacity for most animations. Avoid layout-triggering animation loops, excessive parallax, scroll hijacking, and large JavaScript animation dependencies.
+6. RESPONSIVE REQUIREMENTS
+Desktop:
+•	Editorial two-column hero.
+•	Asymmetric philosophy section.
+•	Multi-column timeline content.
+•	Horizontal service rows.
+•	Generous whitespace.
+Tablet:
+•	Reduce gaps and font sizes carefully.
+•	Maintain readable line lengths.
+•	Prevent timeline and navigation collisions.
+Mobile:
+•	Single-column hero.
+•	Artwork scaled without cropping.
+•	Compact credibility strip.
+•	Stacked editorial content.
+•	Vertical timeline with readable stage headings.
+•	Services arranged as accessible horizontal rows adapted to narrow screens.
+•	Contact details stacked.
+•	Mobile navigation accessible by keyboard.
+•	No horizontal overflow.
+•	Minimum 44px touch targets wherever practical.
+Test at 320px, 375px, 768px, 1024px, and 1440px viewport widths.
+7. TECHNICAL REQUIREMENTS
+Use the existing Lovable project's framework and conventions. Do not replace the entire project stack unnecessarily.
+•	Implement reusable components where they improve maintainability.
+•	Preserve semantic HTML and logical heading hierarchy.
+•	Use inline SVG for the original hero artwork and simple icons where appropriate.
+•	Avoid unnecessary icon libraries and heavy animation packages.
+•	Use the supplied logo asset, not a text approximation.
+•	Use optimized assets and avoid unnecessary external requests.
+•	Add page title, description, theme color, and appropriate metadata.
+•	Ensure visible keyboard focus, sufficient contrast, descriptive link names, and accessible menu state.
+•	Avoid console errors, broken imports, duplicate IDs, invalid nesting, and CSS conflicts.
+•	Keep JavaScript minimal and robust.
+•	Do not add analytics, tracking, cookies, or external integrations without authorization.
+8. CONTENT AND COMPLIANCE RULES
+Treat the supplied website content report, logo, and explicitly approved homepage design as project source material.
+•	Preserve factual business details.
+•	Do not invent financial products, awards, returns, guarantees, testimonials, certifications, registrations, or performance figures.
+•	Do not describe the distributor as a SEBI-registered Investment Adviser.
+•	Do not imply guaranteed returns or assured financial outcomes.
+•	Preserve the specified market-risk and SIF-risk disclosures.
+•	Do not introduce insurance services.
+•	Do not invent legal URLs, API credentials, form backends, or external service connections.
+•	Flag conflicts between the source report and this prompt before changing material content.
+•	Verify regulatory statements and external grievance links against current official sources before production publication.
+9. SEO AND PERFORMANCE
+•	Use one descriptive H1.
+•	Maintain logical H2/H3 structure.
+•	Add accurate page title and meta description.
+•	Give meaningful alt text to informative images; mark purely decorative artwork appropriately.
+•	Avoid loading large libraries for small effects.
+•	Reserve image dimensions to reduce layout shift.
+•	Ensure the page remains readable before animations initialize.
+•	Use a single clear primary CTA per major section.
+•	Check for broken links and missing assets.
+10. ITEMS THAT MUST NOT CHANGE
+Do not change these without explicit approval:
+1.	Sukriti Investments branding and supplied logo.
+2.	Deep-green, teal, and off-white palette.
+3.	Premium editorial design direction.
+4.	Original abstract landscape illustration direction.
+5.	Vertical, scroll-interactive financial journey timeline.
+6.	Two-column philosophy section.
+7.	Horizontal services layout.
+8.	Exactly two services: Mutual Fund Distribution and SIF.
+9.	No insurance card or insurance service.
+10.	Supplied business identity, ARN, contact details, and location.
+11.	Required investment-risk and distributor-status disclosures.
+12.	Restrained animations and responsive accessibility.
+Do not replace this design with a generic template, repetitive cards, a standard stock-photo hero, or a dashboard-style finance layout.
+11. IMPLEMENTATION AND ACCEPTANCE CRITERIA
+Implement the homepage first and match the approved visual direction before introducing unrelated design changes.
+After implementation:
+•	Compare the rendered page against the approved HTML/CSS reference.
+•	Check every section, heading, paragraph, CTA, and service.
+•	Verify the logo asset and all external links.
+•	Test desktop, tablet, and mobile breakpoints.
+•	Test mobile menu behavior and keyboard navigation.
+•	Test scroll reveals, timeline progress, and reduced-motion behavior.
+•	Check color contrast and focus states.
+•	Check console errors, broken links, missing images, and horizontal overflow.
+•	Confirm that all required disclosures are present.
+•	Confirm that no insurance content, fake metrics, or unsupported claims have been introduced.
+•	Flag unavailable legal pages and unverified facts.
+Classify findings as PASS, FAIL, WARNING, or NEEDS DECISION.
+Do not claim QA has passed unless these checks have actually been performed. Do not deploy or publish the site automatically.
+12. REQUIRED WORKFLOW
+Follow this sequence strictly:
+Stage 1 — Implement the homepage based on the approved design.
+Stage 2 — Present the result for review and identify any differences from the reference.
+Stage 3 — Wait for explicit approval before making material design changes or moving to the next workflow stage.
+Stage 4 — Perform structured QA against the source content, approved design, accessibility, responsive behavior, links, and compliance requirements.
+Stage 5 — Resolve failures and material decisions before deployment guidance.
+Stage 6 — Provide deployment instructions only after QA passes and deployment is explicitly authorized.
+Do not silently skip stages. Do not claim a successful deployment without a verified deployment result.
+FINAL OBJECTIVE:
+Deliver a polished, distinctive, production-conscious Sukriti Investments website that feels deliberately designed, communicates trust through clarity rather than exaggerated claims, and reproduces the approved editorial design direction faithfully.
+
+ LOVABLE MASTER PROMPT — SUKRITI INVESTMENTS FOOTER & 10 COMPLIANCE PAGES
+1. Project Context
+You are continuing the existing Sukriti Investments website. Implement the already-approved footer design and create 10 dedicated investor-information and compliance pages using the supplied source document:
+Authoritative content source: AvinashBhandari Website Content.docx
+The latest approved footer HTML/CSS in the project conversation is the design reference for this task.
+This is an extension of the existing website, not a complete redesign. Inspect the current project before changing anything. Identify its framework, routing setup, existing components, logo asset, typography, colour tokens, homepage section IDs and responsive conventions.
+Use the existing architecture and conventions wherever possible. Do not replace the entire homepage or introduce an unrelated design system.
+2. Brand and Visual Direction
+Preserve Sukriti Investments’ existing brand identity.
+Use the existing palette:
+•	Deep green: #123e35
+•	Supporting green: #205c4d
+•	Teal accent: #a8d8c8
+•	Cream background: #f6f5ef
+•	Off-white surfaces: #fffefa
+•	Muted supporting text: #c4d5cc
+These are the approved footer reference values. Reuse the actual existing project tokens if equivalent tokens already exist.
+Do not switch to the reference website’s navy-and-gold palette. The reference image communicates layout and visual hierarchy only, not branding.
+Maintain a refined financial-services aesthetic:
+•	Restrained typography and generous spacing.
+•	Clear hierarchy and readable body text.
+•	Subtle borders and rounded disclosure containers.
+•	Minimal, purposeful hover transitions.
+•	Responsive, accessible navigation.
+•	No unnecessary gradients, decorative clutter or generic template styling.
+3. Implement the Approved Footer
+Create a reusable footer component and integrate it into the existing website layout so it appears consistently across the homepage and all 10 compliance pages.
+Footer structure
+Desktop: four columns.
+Column 1 — Brand and contact
+•	Use the actual Sukriti Investments logo asset already supplied or available in the project.
+•	Do not use a placeholder “S” logo if the real asset exists.
+•	Display:
+o	Avinash Bhandari
+o	AMFI Registered Mutual Fund Distributor & SIF Distributor
+o	ARN-31739
+o	Office address: Utkarsh Complex, SBI Premises, Near Ashapurna Mall, Shastri Nagar, Jodhpur, Rajasthan – 342003
+o	GSTIN: 08AHUPB5195Q1ZD
+o	Phone: +91 98285 35035
+o	Email: avinash@sinvest.in
+•	Include accessible Call Us, WhatsApp and Email Us links.
+•	Phone link: tel:+919828535035
+•	WhatsApp link: https://wa.me/919828535035
+•	Email link: mailto:avinash@sinvest.in
+Column 2 — Our Practice
+•	About Us
+•	Our Services
+•	Mutual Funds
+•	SIF
+•	How We Work
+•	Contact Us
+Link to the corresponding existing homepage sections or pages. First inspect the real section IDs. Do not leave links pointing to nonexistent anchors.
+Column 3 — Investor Desk
+•	Investor Charter
+•	KYC & Onboarding
+•	Transaction Policy
+•	Fund Selection & Suitability
+•	Important Links
+•	AMFI Investor Awareness
+•	SID / SAI / KIM
+Use the appropriate internal pages or verified official external destinations.
+Column 4 — Disclosures & Policies
+Include links to all 10 dedicated pages:
+1.	Privacy Policy
+2.	Terms & Conditions
+3.	Risk Disclaimer
+4.	Commission Disclosure
+5.	Grievance Redressal
+6.	Registration Disclosure
+7.	Investor Charter
+8.	KYC & Onboarding Policy
+9.	Transaction Policy
+10.	Fund Recommendation Policy
+Do not omit any of these links.
+Regulatory disclosure panel
+Below the four columns, create a separate rounded panel using the existing green/teal theme and subtle border.
+Include the source-supported disclosures:
+•	Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully.
+•	SIF investments involve relatively higher risk, including potential loss of capital, liquidity risk and market volatility. Read the relevant scheme documents carefully.
+•	Avinash Bhandari is not a SEBI-registered Investment Adviser. Guidance is incidental to distribution, and no fee is charged for it.
+•	Commission disclosure: trail commission is received from AMCs on Regular Plans; the source document describes it as part of the scheme’s Base Expense Ratio.
+•	Investor grievance escalation links to SEBI SCORES and SMART ODR.
+Use these official destinations:
+•	SEBI SCORES: https://scores.sebi.gov.in/
+•	SMART ODR: https://smartodr.in/
+The footer bottom row should include the copyright year dynamically and quick links to Privacy Policy, Terms & Conditions and Risk Disclaimer.
+Footer responsive behaviour
+•	Desktop: four columns.
+•	Tablet: reorganise columns into a balanced grid without clipping.
+•	Mobile: stack content into readable sections.
+•	Contact buttons must wrap without horizontal overflow.
+•	Long email addresses and links must wrap safely.
+•	Use semantic <footer>, <nav> and appropriate headings.
+•	Provide visible keyboard focus states and sufficient colour contrast.
+•	Respect prefers-reduced-motion.
+•	Keep the footer consistent on every route.
+4. Create 10 Dedicated Pages and Routes
+Each page must be a real route with its own URL and content. Do not implement these as homepage-only sections, modal dialogs, query-string tricks or hash anchors.
+Use the existing router. If the project uses React Router, Next.js or another routing framework, follow its established conventions.
+Page	Required route
+Privacy Policy	/privacy-policy
+Terms & Conditions	/terms-and-conditions
+Risk Disclaimer	/risk-disclaimer
+Commission Disclosure	/commission-disclosure
+Grievance Redressal	/grievance-redressal
+Registration Disclosure	/registration-disclosure
+Investor Charter	/investor-charter
+KYC & Onboarding Policy	/kyc-onboarding
+Transaction Policy	/transaction-policy
+Fund Recommendation Policy	/fund-recommendation-policy
+Every page must:
+•	Load directly when its URL is entered into the browser.
+•	Work after refresh.
+•	Be accessible from the footer.
+•	Have a unique, descriptive page title and meta description.
+•	Use the existing website header and approved footer.
+•	Include a breadcrumb such as Home → Investor Information → Page Name.
+•	Present readable headings, paragraphs and lists.
+•	Work on desktop, tablet and mobile.
+•	Include sensible internal navigation between related policies where helpful.
+•	Return an appropriate not-found page for invalid routes.
+•	Preserve the existing homepage and other functioning routes.
+Internal and external navigation
+•	Internal website links open in the same tab.
+•	External official regulatory links open in a new tab using target="_blank" and rel="noopener noreferrer".
+•	Do not invent URLs.
+•	Verify every internal destination and ensure no dead links remain.
+5. Page Content Requirements
+Use the supplied Word document as the source of truth. Preserve its facts, terminology and material disclosures. Improve readability and page structure without changing the meaning.
+Do not replace missing source content with generic legal language and present it as approved policy text. Do not silently invent compliance obligations.
+Page 1 — Privacy Policy
+Route: /privacy-policy
+Include the source-supported sections:
+•	Purpose and scope.
+•	Data Fiduciary identification: Avinash Bhandari.
+•	Personal information collected, including identity, PAN, address proof, contact, bank, FATCA/CRS, nomination and risk-profile information.
+•	Use of information for KYC, folio servicing, transactions, statements, complaints and regulatory reporting.
+•	Sharing with AMCs, RTAs, KRAs, transaction platforms, insurers and regulators to the extent required for processing and legal compliance.
+•	No sale of personal data or sharing for unrelated marketing.
+•	Physical files, password-protected systems, backups and access controls as described in the source.
+•	Retention and erasure according to applicable requirements described in the document.
+•	Requests for access, correction and updating; withdrawal of consent where permitted.
+•	Cookies and browser settings.
+•	Privacy grievance contact: Avinash Bhandari, avinash@sinvest.in, +91 9828535035.
+•	Policy updates.
+Do not make unsupported guarantees about security, absolute confidentiality or statutory compliance.
+Page 2 — Terms & Conditions
+Route: /terms-and-conditions
+Include:
+•	Website ownership and distributor identity.
+•	General information and investor-education purpose.
+•	No offer, solicitation, recommendation or investment-adviser representation.
+•	Not a SEBI-registered Investment Adviser.
+•	Need to review scheme documents and consider goals, time horizon and risk profile.
+•	Information accuracy and timeliness limitations.
+•	Scheme documents and AMC websites take precedence.
+•	Third-party links.
+•	Intellectual property and prohibited misuse.
+•	Limitation of liability to the extent permitted by law.
+•	Indian law and Jodhpur jurisdiction as specified by the source.
+•	Grievance escalation and policy updates.
+Page 3 — Risk Disclaimer
+Route: /risk-disclaimer
+Include source-supported risks:
+•	Market risk and possible loss of capital.
+•	Issuer default and insolvency risk.
+•	Redemption suspension.
+•	New Fund Offer risks.
+•	Scheme winding-up risks.
+•	Past performance not indicative of future returns.
+•	Riskometer and investor risk-profile alignment.
+•	SIF risks, including potential capital loss, liquidity risk and market volatility.
+•	Standard Mutual Fund and SIF risk disclaimers.
+•	Not a SEBI-registered Investment Adviser disclosure.
+Keep risk language prominent and readable. Do not promise returns or imply that any investment is risk-free.
+Page 4 — Commission Disclosure
+Route: /commission-disclosure
+Include:
+•	Distribution of Regular Plans of Mutual Fund and SIF schemes.
+•	Trail commission received from AMCs.
+•	The source document’s description of commission as part of the scheme Base Expense Ratio (BER).
+•	No upfront commission as stated in the source.
+•	Commission actually paid shown in the investor’s Consolidated Account Statement (CAS).
+•	Variation by scheme, AMC, AUM slab and location.
+•	Scheme-specific commission disclosed when making a recommendation and through the signed Commission Disclosure.
+•	Suitability, not commission rate, is the basis for scheme selection.
+Provide a dedicated section or link for the scheme-wise commission schedule only when the current approved schedule is supplied. Do not invent commission percentages or fabricate a schedule.
+Page 5 — Grievance Redressal
+Route: /grievance-redressal
+Include:
+•	Ways to submit complaints: phone, WhatsApp, email, letter or in person.
+•	Complaint Register.
+•	Acknowledgement within 3 working days and resolution within 15 working days, as stated in the source.
+•	Escalation to the AMC/RTA when relevant.
+•	Closure only after the investor confirms resolution.
+•	GRO: Avinash Bhandari.
+•	Phone: +91 98285 35035.
+•	Email: avinash@sinvest.in.
+Display the source escalation matrix:
+1.	L1 — Avinash Bhandari, GRO.
+2.	L2 — Concerned AMC/RTA.
+3.	L3 — SEBI SCORES: https://scores.sebi.gov.in/.
+4.	L4 — SMART ODR: https://smartodr.in/.
+Include the source-described complaint fields:
+•	Investor name.
+•	Folio number/PAN.
+•	Mobile.
+•	Email.
+•	Complaint category: transaction, account statement, service delay, commission or other.
+•	Complaint details.
+•	Date and signature.
+If no actual complaint form file is supplied, create a usable form layout only if the implementation can support it. Do not falsely claim a complaint has been submitted or create a nonfunctional submit button. If backend/email submission is not configured, clearly show the available contact methods instead.
+Page 6 — Registration Disclosure
+Route: /registration-disclosure
+Use a clear registration-details table.
+Source-provided details:
+•	Distributor: Avinash Bhandari.
+•	Brand: Sukriti Investments.
+•	Status: AMFI Registered Mutual Fund Distributor & SIF Distributor.
+•	ARN: ARN-31739.
+•	Mutual Fund distributor validity: 24-Jul-2025 to 23-Jul-2028; registered since 16-Jul-2005.
+•	SIF distributor validity: 25-Jun-2025 to 11-Jun-2028.
+•	Constitution: Individual.
+•	Registered address: Utkarsh Complex, SBI Premises, Near Ashapurna Mall, Shastri Nagar, Jodhpur, Rajasthan – 342003.
+•	Phone: +91 98285 35035.
+•	Email: avinash@sinvest.in.
+•	GSTIN: 08AHUPB5195Q1ZD.
+•	GRO: Avinash Bhandari.
+Include the empanelled AMC list and registration numbers from the source document only if reproducing the complete list accurately. Preserve names and identifiers exactly.
+Flag registration dates, status, empanelments and identifiers for verification before publication. Do not silently update dates or claim live verification without performing it.
+Page 7 — Investor Charter
+Route: /investor-charter
+The source document references an Investor Charter, but its complete charter text must be checked in the supplied file.
+•	Search the supplied source thoroughly for the complete charter wording.
+•	If present, reproduce and format that source content accurately.
+•	If absent or incomplete, build the page layout but clearly flag the missing official text.
+•	Do not represent a generic summary as the complete official Investor Charter.
+•	Provide links to relevant grievance and investor resources where appropriate.
+Page 8 — KYC & Onboarding Policy
+Route: /kyc-onboarding
+Include the source-described process:
+•	KYC before the first investment.
+•	KYC status check through the relevant KRA.
+•	PAN and identity/address documents.
+•	Photograph, bank proof, investor mobile and email.
+•	Additional requirements for NRIs, minors, companies, trusts and HUFs as stated in the source.
+•	In-Person Verification and KRA/CKYC submission where applicable, as described.
+•	Risk Profiling Form.
+•	Risk Disclosure and Commission Disclosure.
+•	FATCA/CRS self-certification.
+•	Nomination or opt-out and bank details.
+•	Folio opening through the applicable transaction platform or physical form.
+•	Welcome communication with folio details, scheme documents and grievance contact.
+•	Changes made only on the investor’s written request.
+•	Record retention and permitted sharing.
+Do not add an upload or identity-verification feature unless the project actually supports it securely.
+Page 9 — Transaction Policy
+Route: /transaction-policy
+Include:
+•	Transactions accepted only for investors whose KYC is validated and whose risk profile is recorded.
+•	Transactions placed only on the investor’s own instruction.
+•	Source-listed instruction methods: writing, email, WhatsApp from the registered contact, or the investor’s own platform login.
+•	Telephone instructions confirmed in writing before placement.
+•	Record-keeping and relevant AMC/RTA/platform requirements as described by the source.
+Do not build an actual transaction execution function. This is a policy-information page, not a transaction platform.
+Page 10 — Fund Recommendation Policy
+Route: /fund-recommendation-policy
+Include the source’s recommendation framework:
+•	Investor risk category, goals, amount and time horizon from the Risk Profiling Questionnaire.
+•	Only categories permitted by the relevant Suitability Matrix.
+•	Schemes from empanelled AMCs.
+•	Comparison of 1-, 3- and 5-year performance against benchmarks and same-category schemes.
+•	Risk measures, including standard deviation, Sharpe ratio and largest past fall, as specified in the source.
+•	Expense ratio comparison.
+•	Current fund-manager tenure.
+•	Scheme Riskometer must not exceed the investor’s risk category, as specified by the source.
+•	Commission is never the reason for recommendation.
+•	Scheme-specific commission disclosure.
+•	Annual portfolio review and earlier review when requested or when investor circumstances change.
+•	Review of holdings, goals, risk category, performance, category allocation and Riskometer.
+Do not display fabricated fund performance, recommendations, suitability calculations or returns.
+6. Important Official Links
+Use these exact source-provided destinations for the relevant resources:
+•	SID / SAI / KIM: https://www.sebi.gov.in/filings/mutual-funds.html
+•	AMFI Risk Parameters / Stress Test: https://www.amfiindia.com/risk-parameters
+•	AMFI Factsheets: https://www.amfiindia.com/online-center/download-factsheets
+•	AMFI Investor Awareness: https://www.amfiindia.com/investor/awareness-program
+•	SEBI SCORES: https://scores.sebi.gov.in/
+•	SMART ODR: https://smartodr.in/
+•	AMFI Code of Conduct: use the exact URL supplied in the source document; verify it before publishing.
+If the footer references /important-links, ensure this route actually exists. Prefer a dedicated Important Links resource page if required by the current project. Treat it as a supplementary resource page, not as one of the 10 compliance pages listed above.
+External links must open in a new tab and include rel="noopener noreferrer".
+7. Shared Page Design
+Create a reusable layout for all 10 pages:
+•	Existing site header.
+•	Breadcrumb navigation.
+•	Clear page title and short introduction.
+•	Consistent content width and typography.
+•	Readable section headings, paragraphs, lists and tables.
+•	Appropriate callouts for important disclosures.
+•	Links to related policies.
+•	Shared approved footer.
+Use one reusable policy-page component where appropriate, but keep each page’s content and metadata distinct.
+Avoid excessively narrow text columns, long unbroken lines, tiny body text and dense legal paragraphs without headings.
+Use responsive CSS and semantic HTML. On mobile, ensure tables remain readable and navigation does not overflow horizontally.
+8. SEO, Accessibility and Technical Quality
+•	Add unique <title> and meta description per page.
+•	Use one clear H1 per page and logical heading levels.
+•	Use descriptive link text.
+•	Provide alt text for meaningful images.
+•	Ensure keyboard navigation and visible focus indicators.
+•	Use semantic landmarks and accessible navigation labels.
+•	Respect reduced-motion preferences.
+•	Ensure links, buttons and form controls have meaningful labels.
+•	Avoid duplicate IDs and duplicate component styles.
+•	Reuse existing CSS tokens rather than creating conflicting global styles.
+•	Use the existing logo asset and avoid unnecessary new dependencies.
+•	Do not introduce fake links, placeholder production content or nonfunctional controls.
+•	Do not include sensitive investor data in frontend source code.
+•	Ensure the site’s production host supports direct access and refresh on every new route.
+9. Preserve Existing Website
+Do not:
+•	Redesign the homepage.
+•	Change the existing approved colour palette.
+•	Change the approved footer headings:
+o	Our Practice
+o	Investor Desk
+o	Disclosures & Policies
+•	Remove or alter existing homepage sections without explicit permission.
+•	Reintroduce an insurance service card that was intentionally excluded from the homepage design.
+•	Invent registration numbers, commissions, legal clauses, AMC data or investor information.
+•	Treat the illustrative HTML preview’s JavaScript route simulation as a substitute for real application routing.
+•	Claim deployment is complete without a confirmed deployment result.
+Make the smallest safe set of changes required to implement the footer and 10 pages.
+10. QA Acceptance Criteria
+After implementation, run a structured QA pass and report results using PASS, FAIL, WARNING or NEEDS DECISION.
+Routing and navigation
+•	All 10 routes exist.
+•	Each route loads directly by URL.
+•	Refresh works on each route.
+•	Browser back/forward navigation works.
+•	All 10 footer compliance links lead to the correct page.
+•	No broken internal anchors or dead links.
+•	External links point to the correct official destinations.
+•	Unknown routes show a suitable not-found page.
+Design and responsiveness
+•	Existing Sukriti green/teal/cream identity is preserved.
+•	Footer has the four approved columns.
+•	Headings match exactly: Our Practice, Investor Desk, Disclosures & Policies.
+•	Regulatory disclosure panel appears below the footer columns.
+•	Footer looks consistent on homepage and policy pages.
+•	Desktop, tablet and mobile layouts work.
+•	No horizontal overflow or clipped content.
+•	Official logo loads correctly.
+Content and compliance
+•	Source content is accurately represented.
+•	All required distributor contact and registration details are consistent.
+•	Risk and commission disclosures are present.
+•	Grievance escalation links work.
+•	Investor Charter completeness is checked.
+•	Commission schedule availability is checked.
+•	Registration and validity details are flagged for verification.
+•	No invented regulatory requirements or unsupported legal claims.
+•	No accidental insurance service card has been reintroduced.
+Accessibility, SEO and code
+•	Semantic landmarks and heading order are correct.
+•	Keyboard focus is visible.
+•	Reduced-motion preference is respected.
+•	Page titles and meta descriptions are unique.
+•	No console errors.
+•	No broken images or missing assets.
+•	No duplicated IDs or conflicting styles.
+•	No nonfunctional buttons or forms.
+For each failure or warning, explain the issue and the proposed fix. Do not mark an item PASS unless it has actually been checked.
+11. Delivery and Deployment Gate
+After implementation:
+1.	Summarise files/components changed.
+2.	List all 10 created routes.
+3.	Present the QA checklist with evidence-based statuses.
+4.	Clearly identify unresolved items requiring user input or official verification.
+5.	Do not deploy or claim deployment success unless deployment capability is available, the user has authorised the action, and the result is confirmed.
+Final instruction: Implement the approved footer and the 10 source-grounded compliance pages within the existing Sukriti Investments project. Preserve the established design and report any blockers instead of guessing. The implementation must be reviewable and must pass QA before deployment guidance or deployment actions proceed.
+
+ 

@@ -1,0 +1,6 @@
+{
+  "name": "Sukriti Investments",
+  "description": "Mutual fund distribution and specialised investment funds practice of Avinash Bhandari (ARN-31739), Jodhpur, Rajasthan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
