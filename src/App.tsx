@@ -69,7 +69,34 @@ const AppContent: React.FC = () => {
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
     targets.forEach((target) => observer.observe(target));
-    return () => observer.disconnect();
+
+    // Animate actual cards independently as they enter the viewport.
+    const cardTargets = Array.from(document.querySelectorAll<HTMLElement>(
+      'main section article, main section [class*="grid"] > div[class*="rounded-2xl"], main section [class*="grid"] > div[class*="rounded-3xl"], #services .divide-y > div'
+    ));
+    cardTargets.forEach((card, index) => {
+      if (card.closest('#hero')) return;
+      card.setAttribute('data-card-motion', index % 2 === 0 ? 'left' : 'right');
+    });
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const card = entry.target as HTMLElement;
+          card.classList.add('card-motion-visible');
+          cardObserver.unobserve(card);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+
+    cardTargets.forEach((card) => {
+      if (!card.closest('#hero')) cardObserver.observe(card);
+    });
+
+    return () => {
+      observer.disconnect();
+      cardObserver.disconnect();
+    };
   }, [location.pathname]);
 
   // Determine if intro should show: only on homepage, and once per browser session
