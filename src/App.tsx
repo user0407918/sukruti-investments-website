@@ -36,6 +36,34 @@ const AppContent: React.FC = () => {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
+  // Reveal page sections as they enter the viewport, including client-side route changes.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.add('motion-ready');
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach((target) => target.classList.add('is-visible'));
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      targets.forEach((target) => target.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach((target) => observer.observe(target));
+    return () => observer.disconnect();
+  }, [location.pathname]);
+
   // Determine if intro should show: only on homepage, and once per browser session
   const [showIntro, setShowIntro] = useState<boolean>(() => {
     // If not on homepage, don't show intro
