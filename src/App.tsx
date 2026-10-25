@@ -40,6 +40,14 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     const root = document.documentElement;
     root.classList.add('motion-ready');
+
+    // Compliance and utility pages use the same reveal treatment without changing their content.
+    if (location.pathname !== '/') {
+      document.querySelectorAll<HTMLElement>('main section, main article').forEach((target) => {
+        target.setAttribute('data-reveal', 'up');
+      });
+    }
+
     const targets = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       targets.forEach((target) => target.classList.add('is-visible'));
