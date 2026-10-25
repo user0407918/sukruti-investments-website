@@ -691,3 +691,55 @@ main section article:active,
   [data-card-motion] { opacity: 1 !important; animation: none !important; filter: none !important; }
   #hero > div:first-of-type { animation: none !important; }
 }
+
+
+/* Smooth scroll-replay tuning: keep motion on the compositor and avoid blur/filter work. */
+@keyframes smoothRevealUp {
+  from { opacity: 0; transform: translate3d(0, 22px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes smoothRevealLeft {
+  from { opacity: 0; transform: translate3d(-18px, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes smoothCardEnterLeft {
+  from { opacity: 0; transform: translate3d(-28px, 12px, 0) scale(.985); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes smoothCardEnterRight {
+  from { opacity: 0; transform: translate3d(28px, 12px, 0) scale(.985); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+html.motion-ready [data-reveal="up"].is-visible {
+  animation: smoothRevealUp .68s cubic-bezier(.22,.61,.36,1) both !important;
+}
+html.motion-ready [data-reveal="left"].is-visible {
+  animation: smoothRevealLeft .68s cubic-bezier(.22,.61,.36,1) both !important;
+}
+[data-card-motion] {
+  opacity: 1;
+  filter: none !important;
+  will-change: auto;
+  transform: translateZ(0);
+}
+[data-card-motion="left"].card-motion-visible {
+  animation: smoothCardEnterLeft .72s cubic-bezier(.22,.61,.36,1) both !important;
+}
+[data-card-motion="right"].card-motion-visible {
+  animation: smoothCardEnterRight .72s cubic-bezier(.22,.61,.36,1) both !important;
+}
+[data-card-motion].card-motion-visible:nth-child(2n),
+[data-card-motion].card-motion-visible:nth-child(3n),
+[data-card-motion].card-motion-visible:nth-child(4n) {
+  animation-delay: 0s !important;
+}
+@media (max-width: 640px) {
+  @keyframes smoothCardEnterLeft {
+    from { opacity: 0; transform: translate3d(-16px, 8px, 0) scale(.99); }
+    to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  }
+  @keyframes smoothCardEnterRight {
+    from { opacity: 0; transform: translate3d(16px, 8px, 0) scale(.99); }
+    to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  }
+}
