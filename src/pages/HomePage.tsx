@@ -13,31 +13,31 @@ export const HomePage: React.FC = () => {
   return (
     <main id="main-content" tabIndex={-1} className="focus:outline-hidden">
       {/* B. Hero section */}
-      <HomeHero />
+      <div data-reveal="left"><HomeHero /></div>
 
       {/* C. Credibility strip */}
-      <CredibilityStrip />
+      <div data-reveal="up" data-reveal-delay="1"><CredibilityStrip /></div>
 
       {/* D. Philosophy section */}
-      <PhilosophySection />
+      <div data-reveal="up"><PhilosophySection /></div>
 
       {/* E. Signature financial journey */}
-      <FinancialJourney />
+      <div data-reveal="up" data-reveal-delay="1"><FinancialJourney /></div>
 
       {/* F. Services section (2 horizontal rows) */}
-      <ServicesSection />
+      <div data-reveal="up"><ServicesSection /></div>
 
       {/* G. Investor resources and process (4 steps) */}
-      <InvestorResources />
+      <div data-reveal="up" data-reveal-delay="1"><InvestorResources /></div>
 
       {/* H. Risk disclosures */}
-      <RiskDisclosuresPanel />
+      <div data-reveal="up"><RiskDisclosuresPanel /></div>
 
       {/* I. Contact section */}
-      <ContactSection />
+      <div data-reveal="up" data-reveal-delay="1"><ContactSection /></div>
 
       {/* J. Grievance redressal */}
-      <GrievanceSection />
+      <div data-reveal="up"><GrievanceSection /></div>
     </main>
   );
 };
