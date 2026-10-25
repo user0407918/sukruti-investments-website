@@ -72,7 +72,7 @@ const AppContent: React.FC = () => {
 
     // Animate actual cards independently as they enter the viewport.
     const cardTargets = Array.from(document.querySelectorAll<HTMLElement>(
-      'main section article, main section [class*="grid"] > div[class*="rounded-2xl"], main section [class*="grid"] > div[class*="rounded-3xl"], #services .divide-y > div'
+      'main section article, main section .group, main section [class*="grid"] > div[class*="rounded-2xl"], main section [class*="grid"] > div[class*="rounded-3xl"], #services .divide-y > div, #resources .grid > div'
     ));
     cardTargets.forEach((card, index) => {
       if (card.closest('#hero')) return;
