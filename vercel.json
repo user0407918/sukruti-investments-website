@@ -1,5 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/", "destination": "/index-v2.html" },
+    { "source": "/privacy-policy", "destination": "/index-v2.html" },
+    { "source": "/terms-and-conditions", "destination": "/index-v2.html" },
+    { "source": "/risk-disclaimer", "destination": "/index-v2.html" },
+    { "source": "/commission-disclosure", "destination": "/index-v2.html" },
+    { "source": "/grievance-redressal", "destination": "/index-v2.html" },
+    { "source": "/registration-disclosure", "destination": "/index-v2.html" },
+    { "source": "/investor-charter", "destination": "/index-v2.html" },
+    { "source": "/kyc-onboarding", "destination": "/index-v2.html" },
+    { "source": "/transaction-policy", "destination": "/index-v2.html" },
+    { "source": "/fund-recommendation-policy", "destination": "/index-v2.html" },
+    { "source": "/important-links", "destination": "/index-v2.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
