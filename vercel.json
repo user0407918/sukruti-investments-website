@@ -2,12 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
-      "source": "/clear-site-data.html",
+      "source": "/(.*)",
       "headers": [
-        {
-          "key": "Clear-Site-Data",
-          "value": "\"cache\", \"storage\""
-        },
         {
           "key": "Cache-Control",
           "value": "no-store, max-age=0, must-revalidate"
@@ -15,6 +11,19 @@
         {
           "key": "CDN-Cache-Control",
           "value": "no-store"
+        },
+        {
+          "key": "Vercel-CDN-Cache-Control",
+          "value": "no-store"
+        }
+      ]
+    },
+    {
+      "source": "/clear-site-data.html",
+      "headers": [
+        {
+          "key": "Clear-Site-Data",
+          "value": "\"*\""
         }
       ]
     }
