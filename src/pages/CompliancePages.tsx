@@ -343,13 +343,22 @@ const CommissionDisclosureContent: React.FC = () => (
     <p className="text-sm text-[#707B75]">
       Commission rates are provided by individual AMCs and are subject to regulatory caps and periodic updates. The current applicable scheme-wise schedule is available on request at the distributor's office and is furnished with every formal scheme recommendation.
     </p>
-    <div className="pt-2">
+    <div className="pt-2 flex flex-wrap gap-3">
       <a
         href={`mailto:${DISTRIBUTOR_INFO.email}?subject=Request for Current Scheme-Wise Commission Schedule`}
         className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl bg-[#103D3B] text-white text-xs font-semibold uppercase tracking-wider hover:bg-[#087F7C] transition-colors"
       >
         <span>Request Latest Commission Schedule via Email</span>
         <ExternalLink className="w-3.5 h-3.5 text-[#a8d8c8]" />
+      </a>
+      <a
+        href="https://www.dropbox.com/scl/fo/wl5qcir2n34372500w4og/AKGxG9klkCogWpw32e1tfVQ?rlkey=qj6xrsdem5u7gwvq7bjbhfzlh&st=1d820pmw&dl=0"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl border border-[#00B7A5]/50 bg-[#eaf3ee] text-[#103D3B] text-xs font-semibold uppercase tracking-wider hover:bg-[#dcefe7] transition-colors"
+      >
+        <span>View Full Commission Disclosure</span>
+        <ExternalLink className="w-3.5 h-3.5 text-[#087F7C]" />
       </a>
     </div>
   </div>
