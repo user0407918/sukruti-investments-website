@@ -789,3 +789,34 @@ html.motion-ready [data-reveal],
     animation-duration: .72s !important;
   }
 }
+
+
+/* Minimal animated brand mark in the homepage hero */
+@keyframes sukritiOrbitSlow {
+  from { transform: rotate(0deg) scale(1); }
+  to { transform: rotate(360deg) scale(1); }
+}
+@keyframes sukritiOrbitReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes sukritiLogoBreathe {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); box-shadow: 0 12px 45px rgba(16,61,59,.12); }
+  50% { transform: translate3d(0, -5px, 0) scale(1.025); box-shadow: 0 18px 52px rgba(0,183,165,.17); }
+}
+@keyframes sukritiFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+.animate-sukriti-orbit-slow { animation: sukritiOrbitSlow 32s linear infinite; }
+.animate-sukriti-orbit-reverse { animation: sukritiOrbitReverse 22s linear infinite; }
+.animate-sukriti-logo-breathe { animation: sukritiLogoBreathe 5s ease-in-out infinite; }
+.animate-sukriti-float { animation: sukritiFloat 4.2s ease-in-out infinite; }
+.animate-sukriti-float-delayed { animation: sukritiFloat 5.1s ease-in-out 1s infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-sukriti-orbit-slow,
+  .animate-sukriti-orbit-reverse,
+  .animate-sukriti-logo-breathe,
+  .animate-sukriti-float,
+  .animate-sukriti-float-delayed { animation: none !important; }
+}
